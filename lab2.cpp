@@ -1,20 +1,24 @@
 #include <iostream>
-#include <limits>
 #include <string>
 #include <random>
 #include <windows.h>
 #include <algorithm>
-#include <cstring>
 #include <chrono>
 
 using namespace std::chrono;
 using namespace std;
 
+void printArray(const int arr[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+    cout << endl;
+}
+
 int main() {
     SetConsoleOutputCP(CP_UTF8);
     SetConsoleCP(CP_UTF8);
-    int bw = 0;
-    while (bw == 0){
+    while (true){
         const int N = 100;
         int choice;
         mt19937 gen(random_device{}());
@@ -42,10 +46,7 @@ int main() {
                 for(int i = 0; i < N; i++){
                     arr[i] = dist(gen);
                 }
-                for(int i = 0; i < N; i++){
-                    cout << arr[i] << " ";
-                }
-                cout << endl;
+                printArray(arr, N);
                 break;
             }
             case 2:{
